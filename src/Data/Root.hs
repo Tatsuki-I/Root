@@ -1,5 +1,6 @@
 module Data.Root ( (-/)
-                 , toFloating ) where
+                 , toFloating
+                 , gr ) where
 
 import Data.Ratio          ( (%)
                            , denominator
@@ -90,3 +91,6 @@ instance Num Root where
 toFloating :: Floating a => Root -> a
 toFloating              Zero =  0
 toFloating ((c :-/ r) :+ rs) =  fromRational c * sqrt (fromIntegral $ product r) + toFloating rs
+
+gr :: Root
+gr =  ((1 % 2) -/ 1) + ((1 % 2) -/ 5)
